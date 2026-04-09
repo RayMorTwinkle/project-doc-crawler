@@ -259,6 +259,39 @@ A: 使用 `--type dynamic` 参数，需要安装 Selenium 和 ChromeDriver。
 
 MIT
 
+## 🤖 AI Skill 支持
+
+本项目已集成 AI Skill，位于 `skills/doc-crawler/` 目录。AI 可以：
+
+- **自动分析网站结构** - 识别文档框架类型（VitePress、Docusaurus、Astro 等）
+- **智能推荐选择器** - 根据框架自动推荐最优 CSS 选择器
+- **自适应爬取** - 自动调整配置、切换 static/dynamic 模式
+- **错误自动修复** - 遇到问题时自动尝试备选方案
+
+### Skill 文件结构
+
+```
+skills/doc-crawler/
+├── SKILL.md              # Skill 核心说明文档
+├── examples/             # 使用示例
+│   ├── input_01.md      # 爬取示例
+│   └── edge_case.md     # 边界情况处理
+└── scripts/              # 辅助脚本
+    ├── analyze_site.py  # 网站结构分析
+    ├── smart_crawl.py   # 智能爬取
+    └── validate_config.py # 配置验证
+```
+
+### 使用方式
+
+当使用支持该 Skill 的 AI 助手时，直接说：
+
+```
+帮我爬取 https://example.com/docs 的文档
+```
+
+AI 会自动完成分析、配置、爬取的全过程。
+
 ## 🤝 贡献
 
 欢迎提交 Issue 和 Pull Request！
