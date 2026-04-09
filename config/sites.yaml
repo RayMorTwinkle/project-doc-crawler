@@ -1,0 +1,117 @@
+# ================================
+# 通用文档爬虫 - 站点配置文件
+# ================================
+# 使用说明：
+# 1. 在 sites 部分添加要爬取的站点
+# 2. 每个站点需要配置以下字段：
+#    - name: 站点显示名称
+#    - base_url: 站点根URL
+#    - doc_url: 文档入口URL（默认使用 base_url）
+#    - selectors: 内容选择器
+#    - output_dir: 输出目录
+# 3. 可选配置：
+#    - sidebar_selector: 侧边栏选择器
+#    - url_pattern: URL匹配正则表达式
+#    - prefix_to_remove: 文件名中需要移除的URL前缀
+
+# ================================
+# 站点配置示例
+# ================================
+sites:
+
+  # OpenCode 文档（Astro/Starlight 框架）
+  opencode:
+    name: "OpenCode 中文文档"
+    base_url: "https://opencode.ai"
+    doc_url: "https://opencode.ai/docs/zh-cn/"
+    selectors:
+      content: ".sl-markdown-content"
+      title: "h1"
+    sidebar_selector: "#starlight__sidebar"
+    url_pattern: "/docs/zh-cn"
+    prefix_to_remove: "/docs/zh-cn"
+    output_dir: "data/opencode"
+
+  # Vue.js 文档（VitePress 框架）
+  # vue:
+  #   name: "Vue.js 中文文档"
+  #   base_url: "https://cn.vuejs.org"
+  #   doc_url: "https://cn.vuejs.org/guide/introduction.html"
+  #   selectors:
+  #     content: ".vp-doc"
+  #     title: "h1"
+  #   sidebar_selector: ".VPSidebar"
+  #   url_pattern: "/(guide|api|examples|style-guide|about)"
+  #   prefix_to_remove: ""
+  #   output_dir: "data/vue"
+
+  # React 文档
+  # react:
+  #   name: "React 中文文档"
+  #   base_url: "https://zh-hans.react.dev"
+  #   doc_url: "https://zh-hans.react.dev/learn"
+  #   selectors:
+  #     content: "article"
+  #     title: "h1"
+  #   sidebar_selector: "nav"
+  #   url_pattern: "/(learn|reference)"
+  #   prefix_to_remove: ""
+  #   output_dir: "data/react"
+
+  # Next.js 文档
+  # nextjs:
+  #   name: "Next.js 文档"
+  #   base_url: "https://nextjs.org"
+  #   doc_url: "https://nextjs.org/docs"
+  #   selectors:
+  #     content: "article"
+  #     title: "h1"
+  #   sidebar_selector: "nav"
+  #   url_pattern: "/docs"
+  #   prefix_to_remove: "/docs"
+  #   output_dir: "data/nextjs"
+
+  # Tailwind CSS 文档
+  # tailwind:
+  #   name: "Tailwind CSS 文档"
+  #   base_url: "https://tailwindcss.com"
+  #   doc_url: "https://tailwindcss.com/docs/installation"
+  #   selectors:
+  #     content: "article"
+  #     title: "h1"
+  #   sidebar_selector: "nav"
+  #   url_pattern: "/docs"
+  #   prefix_to_remove: "/docs"
+  #   output_dir: "data/tailwind"
+
+  # 示例：自定义静态网站
+  # example:
+  #   name: "示例文档站点"
+  #   base_url: "https://example.com"
+  #   doc_url: "https://example.com/docs"
+  #   selectors:
+  #     content: ".content"           # 正文内容选择器
+  #     title: "h1"                   # 标题选择器
+  #   sidebar_selector: ".sidebar"    # 侧边栏选择器
+  #   url_pattern: "/docs"            # URL匹配模式（正则）
+  #   prefix_to_remove: "/docs"       # 文件名中移除的前缀
+  #   output_dir: "data/example"      # 输出目录
+
+# ================================
+# 全局设置
+# ================================
+settings:
+  # 请求间隔（秒），避免对服务器造成压力
+  delay: 1.0
+
+  # 请求超时时间（秒）
+  timeout: 30
+
+  # User-Agent 字符串
+  user_agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+
+  # 输出格式（目前仅支持 markdown）
+  output_format: "markdown"
+
+  # 爬取深度限制
+  max_depth: 3

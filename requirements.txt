@@ -1,0 +1,24 @@
+# 爬虫核心
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# 动态页面（可选）
+selenium>=4.15.0
+playwright>=1.40.0
+
+# 数据处理
+pandas>=2.1.0
+markdownify>=0.11.0
+
+# 配置管理
+pyyaml>=6.0.1
+python-dotenv>=1.0.0
+
+# 工具
+tqdm>=4.66.0
+colorama>=0.4.6
+
+# AI集成（可选）
+openai>=1.3.0
+langchain>=0.0.350
